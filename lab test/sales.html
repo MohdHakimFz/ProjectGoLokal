@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Commission</title>
+  <style>
+   body {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+   }
+
+   .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+   }
+
+   h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+   }
+
+   label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+   }
+
+   input[type="text"],
+   input[type="number"] {
+    width: 94%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+   }
+
+   input[type="submit"] {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+   }
+
+   input[type="submit"]:hover {
+    background-color: #218838;
+   }
+
+   @media screen and (max-width: 500px) {
+    .container {
+     padding: 20px;
+    }
+   }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <h2>Sales Commission Calculation</h2>
+   <form action="calculate_sales.php" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required />
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="month">Month:</label>
+    <input type="text" id="month" name="month" required />
+
+    <label for="sales_amount">Sales Amount:</label>
+    <input type="number" id="sales_amount" name="sales_amount" required />
+
+    <input type="submit" value="Calculate Commission" />
+   </form>
+  </div>
+ </body>
+</html>
