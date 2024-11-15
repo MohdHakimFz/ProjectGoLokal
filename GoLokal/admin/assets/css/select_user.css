@@ -1,0 +1,225 @@
+:root {
+ --primary-color: #045970;
+ --secondary-color: #ff6b6b;
+ --background-color: #f8f9fd;
+ --card-color: #ffffff;
+ --text-primary: #2d3436;
+ --text-secondary: #636e72;
+ --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ --transition: all 0.3s ease;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+}
+
+body {
+ background-image: url("../image/background/batik\ 5.jpg");
+ color: var(--text-primary);
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+/* Header Styles */
+header {
+ background-color: var(--primary-color);
+ padding: 1rem 0;
+ box-shadow: var(--shadow);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+}
+
+.container {
+ max-width: 1400px;
+ margin: 0 auto;
+ padding: 0 2rem;
+}
+
+.logo {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.logo img {
+ height: 45px;
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+ position: relative;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+.user-image-container {
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+#profile-picture {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ object-fit: cover;
+ border: 2px solid var(--secondary-color);
+}
+
+.user-image-container p {
+ color: white;
+ font-weight: 500;
+}
+
+.dropdown-toggle {
+ background: none;
+ border: none;
+ color: #ff6b6b;
+ cursor: pointer;
+}
+
+.dropdown-arrow {
+ color: var(--secondary-color);
+ transition: var(--transition);
+}
+
+.dropdown-menu {
+ position: absolute;
+ top: 120%;
+ right: 0;
+ background: var(--card-color);
+ border-radius: 12px;
+ box-shadow: var(--shadow);
+ padding: 0.5rem 0;
+ min-width: 200px;
+ display: none;
+ animation: slideDown 0.3s ease;
+}
+
+.dropdown-menu.show {
+ display: block;
+}
+
+.dropdown-menu a {
+ display: block;
+ padding: 0.8rem 1.5rem;
+ color: var(--text-primary);
+ text-decoration: none;
+ transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+ background-color: var(--secondary-color);
+ color: white;
+}
+
+/* Main Content Styles */
+h1 {
+ text-align: center;
+ color: var(--text-primary);
+ margin: 2rem 0;
+ font-size: 2rem;
+}
+
+form {
+ max-width: 500px;
+ margin: 2rem auto;
+ padding: 2rem;
+ background: var(--card-color);
+ border-radius: 15px;
+ box-shadow: var(--shadow);
+}
+
+label {
+ display: block;
+ margin-bottom: 1rem;
+ color: var(--text-secondary);
+ font-weight: 500;
+ font-size: 1.1rem;
+}
+
+select {
+ width: 100%;
+ padding: 1rem;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ font-size: 1rem;
+ margin-bottom: 1.5rem;
+ background-color: white;
+ cursor: pointer;
+ transition: var(--transition);
+}
+
+select:focus {
+ border-color: var(--secondary-color);
+ outline: none;
+ box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+button {
+ width: 100%;
+ padding: 1rem;
+ background-color: var(--secondary-color);
+ color: white;
+ border: none;
+ border-radius: 8px;
+ font-size: 1rem;
+ font-weight: 500;
+ cursor: pointer;
+ transition: var(--transition);
+}
+
+button:hover {
+ background-color: #ff5252;
+ transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes slideDown {
+ from {
+  opacity: 0;
+  transform: translateY(-10px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .container {
+  padding: 0 1rem;
+ }
+
+ form {
+  margin: 1rem;
+  padding: 1.5rem;
+ }
+
+ h1 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+ }
+
+ .user-image-container p {
+  display: none;
+ }
+}
+
+@media (max-width: 480px) {
+ select,
+ button {
+  padding: 0.8rem;
+ }
+
+ label {
+  font-size: 1rem;
+ }
+}

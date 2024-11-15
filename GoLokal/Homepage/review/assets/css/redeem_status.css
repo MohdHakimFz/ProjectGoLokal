@@ -1,0 +1,296 @@
+:root {
+ --header-color: #045970;
+ --primary-color: #045970;
+ --secondary-color: #ff6b6b;
+ --background-color: #f8f9fd;
+ --card-color: #ffffff;
+ --text-primary: #2d3436;
+ --text-secondary: #636e72;
+ --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ --transition: all 0.3s ease;
+ --success: #2ecc71;
+ --warning: #f1c40f;
+ --danger: #e74c3c;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+}
+
+body {
+ background-image: url("../image/background/batik\ 5.jpg");
+ color: var(--text-primary);
+}
+
+/* Header Styles */
+header {
+ background-color: var(--header-color);
+ padding: 1rem 6rem;
+ box-shadow: var(--shadow);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+}
+
+.container {
+ max-width: 100%;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.logo {
+ display: flex;
+ align-items: center;
+}
+
+.logo img {
+ height: 45px;
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+ position: relative;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+.user-image-container {
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ margin-left: 1100px;
+}
+
+#profile-picture {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ object-fit: cover;
+ border: 2px solid var(--secondary-color);
+}
+
+.user-image-container p {
+ color: white;
+ font-weight: 500;
+ font-size: 16px;
+}
+
+.dropdown-toggle {
+ padding: 0;
+ background: none;
+ border: none;
+ color: #ff0000;
+ cursor: pointer;
+ font-size: 0.8rem;
+}
+
+.dropdown-arrow {
+ color: #ff0000;
+}
+
+.dropdown-menu {
+ position: absolute;
+ top: 120%;
+ right: 0;
+ background: var(--card-color);
+ border-radius: 12px;
+ box-shadow: var(--shadow);
+ padding: 0.5rem 0;
+ min-width: 200px;
+ display: none;
+ animation: slideDown 0.3s ease;
+}
+
+.dropdown-menu.show {
+ display: block;
+}
+
+.dropdown-menu a {
+ display: block;
+ padding: 0.8rem 1.5rem;
+ color: var(--text-primary);
+ text-decoration: none;
+ transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+ background-color: var(--secondary-color);
+ color: white;
+}
+
+/* Status Container Styles */
+.status-container {
+ max-width: 1400px;
+ margin: 2rem auto;
+ padding: 0 1rem;
+}
+
+h1 {
+ text-align: center;
+ color: var(--text-primary);
+ margin-bottom: 2rem;
+ font-size: 1.8rem;
+}
+
+/* Table Styles */
+table {
+ width: 100%;
+ background: var(--card-color);
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: var(--shadow);
+ border-collapse: collapse;
+ margin-bottom: 2rem;
+}
+
+thead {
+ background-color: var(--header-color);
+ color: white;
+}
+
+th,
+td {
+ padding: 1rem;
+ text-align: left;
+ border-bottom: 1px solid #eee;
+}
+
+th {
+ font-weight: 500;
+ text-transform: uppercase;
+ font-size: 0.85rem;
+ letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+ background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Select Dropdown Styles */
+select {
+ padding: 0.5rem;
+ border-radius: 6px;
+ border: 1px solid #ddd;
+ background-color: white;
+ font-size: 0.9rem;
+ cursor: pointer;
+ transition: var(--transition);
+ width: 100%;
+ max-width: 150px;
+}
+
+select:focus {
+ outline: none;
+ border-color: var(--primary-color);
+ box-shadow: 0 0 0 2px rgba(4, 89, 112, 0.1);
+}
+
+/* Update Button Styles */
+.update-btn {
+ background-color: var(--primary-color);
+ color: white;
+ border: none;
+ padding: 0.5rem 1rem;
+ border-radius: 6px;
+ cursor: pointer;
+ transition: var(--transition);
+ font-size: 0.9rem;
+ width: 100%;
+ max-width: 100px;
+}
+
+.update-btn:hover {
+ background-color: var(--header-color);
+ transform: translateY(-2px);
+}
+
+/* Back to Dashboard Button */
+.back-dashboard-button {
+ display: inline-block;
+ padding: 0.8rem 1.5rem;
+ background-color: var(--header-color);
+ color: white;
+ text-decoration: none;
+ border-radius: 8px;
+ transition: var(--transition);
+ font-weight: 500;
+ margin-top: 1rem;
+}
+
+.back-dashboard-button:hover {
+ background-color: var(--primary-color);
+ transform: translateY(-2px);
+ box-shadow: var(--shadow);
+}
+
+/* Status Colors */
+select option[value="Pending"] {
+ color: var(--warning);
+ transition: color var(--transition);
+}
+
+select option[value="Completed"] {
+ color: var(--success);
+ transition: color var(--transition);
+}
+
+select option[value="Cancelled"] {
+ color: var(--danger);
+ transition: color var(--transition);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+ .status-container {
+  padding: 0 2rem;
+ }
+}
+
+@media (max-width: 768px) {
+ table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+ }
+
+ th,
+ td {
+  padding: 0.8rem;
+ }
+
+ .user-image-container p {
+  display: none;
+ }
+
+ .status-container {
+  padding: 0 1.5rem;
+ }
+}
+
+@media (max-width: 480px) {
+ header {
+  padding: 0.5rem 1rem;
+ }
+
+ h1 {
+  font-size: 1.5rem;
+ }
+
+ .update-btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+ }
+
+ select {
+  font-size: 0.8rem;
+  padding: 0.4rem;
+ }
+}

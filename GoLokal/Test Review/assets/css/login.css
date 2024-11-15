@@ -1,0 +1,209 @@
+* {
+ box-sizing: border-box;
+}
+
+body {
+ font-family: "Poppins", sans-serif;
+ background: url("../image/background/Batik2.jpg") no-repeat center center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+
+.container {
+ background-color: #fff;
+ border-radius: 50px; /* Apply the curve to the entire container */
+ box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+ position: relative;
+ width: 768px;
+ max-width: 100%;
+ min-height: 480px;
+ overflow: hidden; /* Clip any overflowing elements */
+}
+
+.form-container {
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 50%;
+ transition: all 0.6s ease-in-out;
+ border-radius: 0 50px 50px 0; /* Curve for the right side */
+}
+.sign-in-container {
+ left: 0;
+ z-index: 2;
+}
+
+.sign-up-container {
+ left: 0;
+ opacity: 0;
+ z-index: 1;
+}
+.overlay-container {
+ position: absolute;
+ top: 0;
+ left: 50%;
+ width: 50%;
+ height: 100%;
+ overflow: hidden; /* Clip anything outside the container */
+ z-index: 100;
+ transition: transform 0.6s ease-in-out;
+}
+
+.overlay {
+ background: linear-gradient(to right, #36d1dc, #5b86e5);
+
+ color: #fff;
+ position: absolute; /* Ensure it can fill the parent container */
+ left: -100%;
+ height: 100%;
+ width: 200%;
+ transform: translateX(0);
+ transition: transform 0.6s ease-in-out;
+ border-radius: 50px; /* Curve all edges */
+}
+
+.overlay-panel {
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center; /* This ensures vertical centering */
+ padding: 50px 40px;
+ text-align: center;
+ top: 0;
+ height: 100%;
+ width: 50%;
+ transition: transform 0.6s ease-in-out;
+ right: 40%;
+}
+
+.overlay-left {
+ transform: translateX(-20%);
+}
+
+.overlay-right {
+ right: 0;
+ transform: translateX(0);
+}
+
+.container.right-panel-active .sign-up-container {
+ transform: translateX(100%);
+ opacity: 1;
+ z-index: 5;
+}
+
+.container.right-panel-active .sign-in-container {
+ transform: translateX(100%);
+ z-index: 1;
+}
+
+.container.right-panel-active .form-container {
+ border-radius: 50px 0 0 50px; /* Curve for the left side when active */
+}
+
+.container.right-panel-active .overlay-container {
+ transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+ transform: translateX(50%);
+ border-radius: 50px; /* Maintain curve on all sides when active */
+}
+h1 {
+ font-size: 26px;
+ font-weight: bold;
+ margin-bottom: 20px;
+}
+
+p {
+ font-size: 16px;
+ line-height: 22px;
+ margin-bottom: 30px;
+}
+
+button {
+ border-radius: 30px; /* Adjusted for smoother rounded edges */
+ border: 1px solid #5b86e5;
+ background-color: #5b86e5;
+ color: #fff;
+ font-size: 14px;
+ padding: 12px 45px;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ transition: background-color 80ms ease-in;
+}
+
+button:hover {
+ background-color: #6090f7;
+}
+
+button.ghost {
+ background-color: transparent;
+ border: 1px solid white;
+ color: white;
+ padding: 12px 30px;
+ border-radius: 20px;
+ cursor: pointer;
+ font-weight: bold;
+}
+
+button.ghost:hover {
+ background-color: rgba(255, 255, 255, 0.2);
+}
+
+input {
+ background-color: #eee;
+ border: none;
+ padding: 12px 15px;
+ margin: 8px 0;
+ width: 100%;
+}
+
+.form-container form {
+ background-color: #ffffff;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 0 50px;
+ height: 100%;
+ justify-content: center;
+ text-align: center;
+}
+
+.form-container form button {
+ margin-top: 20px;
+}
+
+/* Adjusting overlay button styles */
+.overlay-panel button {
+ background-color: transparent;
+ border: 1px solid white;
+ color: white;
+}
+
+.overlay-panel button:hover {
+ background-color: rgba(255, 255, 255, 0.3);
+ border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Slide-in/out container transformations */
+.container.right-panel-active .sign-up-container {
+ transform: translateX(100%);
+ opacity: 1;
+ z-index: 5;
+}
+
+.container.right-panel-active .sign-in-container {
+ transform: translateX(100%);
+ z-index: 1;
+}
+
+.container.right-panel-active .overlay-container {
+ transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+ transform: translateX(50%);
+}

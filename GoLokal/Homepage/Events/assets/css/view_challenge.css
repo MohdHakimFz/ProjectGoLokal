@@ -1,0 +1,263 @@
+:root {
+ --primary-color: #045970;
+ --secondary-color: #ff6b6b;
+ --background-color: #f8f9fd;
+ --card-color: #ffffff;
+ --text-primary: #2d3436;
+ --text-secondary: #636e72;
+ --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ --transition: all 0.3s ease;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+}
+
+body {
+ background-image: url("../image/background/batik\ 5.jpg");
+ color: var(--text-primary);
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+/* Header Styles */
+header {
+ background-color: var(--primary-color);
+ padding: 1rem 0;
+ box-shadow: var(--shadow);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+}
+
+.container {
+ max-width: 1400px;
+ margin: 0 auto;
+ padding: 0 2rem;
+}
+
+.logo {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.logo img {
+ height: 45px;
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+ position: relative;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+.user-image-container {
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+#profile-picture {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ object-fit: cover;
+ border: 2px solid var(--secondary-color);
+}
+
+.user-image-container p {
+ color: white;
+ font-weight: 500;
+}
+
+.dropdown-toggle {
+ background: none;
+ border: none;
+ color: #ff6b6b;
+ cursor: pointer;
+}
+
+.dropdown-menu {
+ position: absolute;
+ top: 120%;
+ right: 0;
+ background: var(--card-color);
+ border-radius: 12px;
+ box-shadow: var(--shadow);
+ padding: 0.5rem 0;
+ min-width: 200px;
+ display: none;
+ animation: slideDown 0.3s ease;
+}
+
+.dropdown-menu.show {
+ display: block;
+}
+
+.dropdown-menu a {
+ display: block;
+ padding: 0.8rem 1.5rem;
+ color: var(--text-primary);
+ text-decoration: none;
+ transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+ background-color: var(--secondary-color);
+ color: white;
+}
+
+/* Main Content Styles */
+main {
+ flex: 1;
+ padding: 2rem;
+ max-width: 1200px;
+ margin: 0 auto;
+ width: 100%;
+}
+
+h1 {
+ text-align: center;
+ color: var(--text-primary);
+ margin-bottom: 2rem;
+ font-size: 2rem;
+}
+
+/* Challenge List Styles */
+.challenge-list {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 1.5rem;
+ margin-bottom: 2rem;
+}
+
+.challenge-card {
+ background: var(--card-color);
+ border-radius: 15px;
+ padding: 1.5rem;
+ box-shadow: var(--shadow);
+ transition: var(--transition);
+}
+
+.challenge-card:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.challenge-card h2 {
+ color: var(--primary-color);
+ margin-bottom: 1rem;
+ font-size: 1.4rem;
+}
+
+.challenge-card p {
+ color: var(--text-secondary);
+ margin-bottom: 0.8rem;
+ line-height: 1.5;
+}
+
+.challenge-card strong {
+ color: var(--text-primary);
+}
+
+.edit-button {
+ display: inline-block;
+ background-color: var(--secondary-color);
+ color: white;
+ padding: 0.8rem 1.5rem;
+ border-radius: 8px;
+ text-decoration: none;
+ transition: var(--transition);
+ margin-top: 1rem;
+}
+
+.edit-button:hover {
+ background-color: #ff5252;
+ transform: translateX(5px);
+}
+
+.back-button {
+ display: inline-block;
+ background-color: var(--primary-color);
+ color: white;
+ padding: 1rem 2rem;
+ border-radius: 8px;
+ text-decoration: none;
+ transition: var(--transition);
+ margin-top: 2rem;
+}
+
+.back-button:hover {
+ background-color: #034b5c;
+ transform: translateX(-5px);
+}
+
+/* No Challenges Message */
+.challenge-list > p {
+ grid-column: 1 / -1;
+ text-align: center;
+ padding: 2rem;
+ background: var(--card-color);
+ border-radius: 15px;
+ color: var(--text-secondary);
+ font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes slideDown {
+ from {
+  opacity: 0;
+  transform: translateY(-10px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .container {
+  padding: 0 1rem;
+ }
+
+ main {
+  padding: 1rem;
+ }
+
+ h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+ }
+
+ .challenge-list {
+  grid-template-columns: 1fr;
+ }
+
+ .user-image-container p {
+  display: none;
+ }
+}
+
+@media (max-width: 480px) {
+ .challenge-card {
+  padding: 1rem;
+ }
+
+ .challenge-card h2 {
+  font-size: 1.2rem;
+ }
+
+ .edit-button,
+ .back-button {
+  width: 100%;
+  text-align: center;
+ }
+}

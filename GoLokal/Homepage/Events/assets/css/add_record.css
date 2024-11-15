@@ -1,0 +1,274 @@
+:root {
+ --primary-color: #045970;
+ --secondary-color: #ff6b6b;
+ --background-color: #f8f9fd;
+ --card-color: #ffffff;
+ --text-primary: #2d3436;
+ --text-secondary: #636e72;
+ --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ --transition: all 0.3s ease;
+ --header-color: #045970;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+}
+
+body {
+ background-image: url("../image/background/batik\ 5.jpg");
+ color: var(--text-primary);
+}
+
+/* Header Styles */
+header {
+ background-color: var(--header-color);
+ padding: 1rem 6rem;
+ box-shadow: var(--shadow);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+}
+
+.container {
+ max-width: 100%;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.logo {
+ display: flex;
+ align-items: center;
+}
+
+.logo img {
+ height: 45px;
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+ position: relative;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+.user-image-container {
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+
+#profile-picture {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ object-fit: cover;
+ border: 2px solid var(--secondary-color);
+}
+
+.user-image-container p {
+ color: white;
+ font-weight: 500;
+ font-size: 16px;
+}
+
+.dropdown-toggle {
+ padding: 0;
+ background: none;
+ border: none;
+ color: #ff0000;
+ cursor: pointer;
+ font-size: 0.8rem;
+}
+
+.dropdown-arrow {
+ color: #ff0000;
+}
+
+.dropdown-menu {
+ position: absolute;
+ top: 120%;
+ right: 0;
+ background: var(--card-color);
+ border-radius: 12px;
+ box-shadow: var(--shadow);
+ padding: 0.5rem 0;
+ min-width: 200px;
+ display: none;
+ animation: slideDown 0.3s ease;
+}
+
+.dropdown-menu.show {
+ display: block;
+}
+
+.dropdown-menu a {
+ display: block;
+ padding: 0.8rem 1.5rem;
+ color: var(--text-primary);
+ text-decoration: none;
+ transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+ background-color: var(--secondary-color);
+ color: white;
+}
+
+/* Main Content Styles */
+main {
+ flex: 1;
+ padding: 2rem;
+ max-width: 800px;
+ margin: 0 auto;
+ width: 100%;
+}
+
+h1 {
+ text-align: center;
+ color: var(--text-primary);
+ margin-bottom: 2rem;
+ font-size: 2rem;
+}
+
+/* Form Styles */
+form {
+ background: var(--card-color);
+ padding: 2rem;
+ border-radius: 15px;
+ box-shadow: var(--shadow);
+ margin-bottom: 2rem;
+}
+
+label {
+ display: block;
+ margin-bottom: 0.5rem;
+ color: var(--text-secondary);
+ font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+ width: 100%;
+ padding: 1rem;
+ margin-bottom: 1.5rem;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ font-size: 1rem;
+ transition: var(--transition);
+}
+
+textarea {
+ min-height: 150px;
+ resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+ outline: none;
+ border-color: var(--secondary-color);
+ box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+select {
+ appearance: none;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+ background-repeat: no-repeat;
+ background-position: right 1rem center;
+ background-size: 12px;
+ padding-right: 2.5rem;
+}
+
+button[type="submit"] {
+ width: 100%;
+ padding: 1rem;
+ background-color: var(--secondary-color);
+ color: white;
+ border: none;
+ border-radius: 8px;
+ font-size: 1rem;
+ font-weight: 500;
+ cursor: pointer;
+ transition: var(--transition);
+}
+
+button[type="submit"]:hover {
+ background-color: #ff5252;
+ transform: translateY(-2px);
+}
+
+.back-to-dashboard {
+ display: block;
+ width: max-content;
+ margin: 0 auto;
+ padding: 1rem 2rem;
+ background-color: var(--primary-color);
+ color: white;
+ text-decoration: none;
+ border-radius: 8px;
+ transition: var(--transition);
+}
+
+.back-to-dashboard:hover {
+ background-color: #034b5c;
+ transform: translateX(-5px);
+}
+
+/* Animations */
+@keyframes slideDown {
+ from {
+  opacity: 0;
+  transform: translateY(-10px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ main {
+  padding: 1rem;
+ }
+
+ .container {
+  padding: 0 1rem;
+ }
+
+ h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+ }
+
+ form {
+  padding: 1.5rem;
+ }
+
+ .user-image-container p {
+  display: none;
+ }
+}
+
+@media (max-width: 480px) {
+ input[type="text"],
+ input[type="number"],
+ textarea,
+ select {
+  padding: 0.8rem;
+ }
+
+ .back-to-dashboard {
+  width: 100%;
+  text-align: center;
+ }
+}
